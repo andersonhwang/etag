@@ -1,4 +1,4 @@
-# etag
+# eTag
 The HelloWorld and simple send service of eTag ESL/PTL SDK.
 
 # How to install
