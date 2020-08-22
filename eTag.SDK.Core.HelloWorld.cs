@@ -4,6 +4,10 @@
     Email:      huanghaipeng@etag-tech.com
     Date:       2019-12-12
     Summary:    This HelloWorld demo show how to use eTag SDK.
+
+Update Log:
+> Huang Hai Peng@2020-08-22
+> Remove PTL sections, update to SDK version 2.5.0
    ============================================================== */
 using eTag.SDK.Core;
 using eTag.SDK.Core.Entity;
@@ -60,22 +64,6 @@ namespace eTagTech.HelloWorld.Core
             var result1 = Server.Instance.Send(SHOP_CODE, STATION_ID, tag2, true, true);
             Console.WriteLine("Send Result:" + result0);
             Console.ReadKey();
-
-            #region NOTE: ONLY FOR PTL
-            /*
-            // Press any key to start the 3rd demo
-            // PTL mode
-            Console.WriteLine("\r\nPress any key to start the 3rd demo: PTL mode");
-            Console.ReadKey();
-
-            var tag3 = GetPTLTagEntity(PTL_ID[0], r.Next(65535));
-            var tag4 = GetPTLTagEntity(PTL_ID[1], r.Next(65535));
-            var tag5 = GetPTLTagEntity(PTL_ID[2], r.Next(65535));
-            var result2 = Server.Instance.Send(SHOP_CODE, STATION_ID, new List<TagEntity> { tag3, tag4, tag5 }, true, true);
-            Console.WriteLine("Send Result:" + result2);
-            Console.ReadKey();
-            */
-            #endregion
 
             // Exit
             Console.ReadKey();
@@ -159,31 +147,6 @@ namespace eTagTech.HelloWorld.Core
         }
 
         /// <summary>
-        /// Get PTL tag entity
-        /// </summary>
-        /// <param name="tagID">Tag ID</param>
-        /// <param name="token">Token</param>
-        /// <returns>PTL tag entity</returns>
-        private static TagEntity GetPTLTagEntity(string tagID, int token)
-        {
-            return new TagEntity
-            {
-                TagID = tagID,
-                Token = token,
-                G = true,
-                Times = 100,
-                DataList = new List<DataEntity>
-                {
-                    new SEG290Entity
-                    {
-                        Data = "1234",
-                        AutoClean = true
-                    }
-                },
-            };
-        }
-
-        /// <summary>
         /// Instance of result event handler
         /// </summary>
         /// <param name="sender"></param>
@@ -193,8 +156,8 @@ namespace eTagTech.HelloWorld.Core
             Console.WriteLine("Shop Code:{0}, AP:{1}, Result Type:{2}, Count:{3}", e.ShopCode, e.StationID, e.ResultType, e.ResultList.Count);
             foreach (var item in e.ResultList)
             {
-                Console.WriteLine(" >> Tag ID:{0}, Status:{1}, Temperature:{2}, Power:{3}, Signal:{4}, Key: {5},Token:{6}, PLT:{7}",
-                    item.TagID, item.TagStatus, item.Temperature, item.PowerValue, item.Signal, item.KeyType, item.Token, item.PtlNumber);
+                Console.WriteLine(" >> Tag ID:{0}, Status:{1}, Temperature:{2}, Power:{3}, Signal:{4}, Token:{5}",
+                    item.TagID, item.TagStatus, item.Temperature, item.PowerValue, item.Signal, item.Token);
             }
         }
 
