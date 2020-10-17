@@ -27,8 +27,6 @@ namespace eTagTech.HelloWorld.Core
         static string STATION_ID = "01";
         // Your ESL tags' ID here:
         static string[] ESL_ID = new string[] { "04018B2B", "0401C5DE", "0704FA24" };
-        // Your PTL tags' ID here:
-        static string[] PTL_ID = new string[] { "13053E14", "13053DE5", "13053DCC" };
 
         /// <summary>
         /// The main
