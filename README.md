@@ -1,5 +1,5 @@
-# eTag
-The HelloWorld and simple send service of eTag ESL/PTL SDK.
+# eTag Gen2.0
+The HelloWorld and simple send service of eTag ESL/PTL (Gen2.0) SDK.
 
 # How to install
 .NET Core 3.1: Install-Package eTag.SDK.Core
